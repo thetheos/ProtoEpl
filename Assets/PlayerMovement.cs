@@ -12,8 +12,6 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller2D;
 
 
-
-
     // Update is called once per frame
     void Update()
     {
@@ -24,5 +22,12 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         controller2D.Move(xMvt * Time.fixedDeltaTime, yMvt * Time.fixedDeltaTime);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        xMvt = 0;
+        yMvt = 0;
+        Debug.Log("Has chocked");
     }
 }
